@@ -856,7 +856,7 @@ contract EarnX is Context, IBSC20, Ownable {
 
     function excludeFromReward(address account) public onlyOwner() {
         // require(account != 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D, 'We can not exclude Uniswap router.');
-        require(!_isExcluded[account], "Account is not excluded");
+        require(!_isExcluded[account], "Account is already excluded");
         if (_rOwned[account] > 0) {
             _tOwned[account] = tokenFromReflection(_rOwned[account]);
         }
